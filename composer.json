@@ -1,0 +1,23 @@
+{
+  "name": "beastbytes/http",
+  "description": "HTTP Service",
+  "keywords": [
+    "http",
+    "yii3"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.0",
+    "psr/http-message": "^1.0",
+    "yiisoft/yii-http": "^1.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "BeastBytes\\HTTP\\": "src"
+    }
+  }
+}
