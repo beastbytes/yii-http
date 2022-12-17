@@ -12,13 +12,16 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Yiisoft\Http\Header;
 use Yiisoft\Http\Status;
+use Yiisoft\Router\UrlGeneratorInterface;
 
 final class ResponseService
 {
     public function __construct(
-        private ResponseFactoryInterface $responseFactory
+        private ResponseFactoryInterface $responseFactory,
+        private UrlGeneratorInterface $urlGenerator
     )
-    {}
+    {
+    }
 
     public function notFoundResponse(string $message = ''): ResponseInterface
     {
@@ -35,11 +38,22 @@ final class ResponseService
         return $response;
     }
 
-    public function redirectResponse(string $url, int $code = Status::FOUND): ResponseInterface
+    public function redirectResponse(
+        string $name,
+        array $attributes = [],
+        array $queryParameters = [],
+        int $code = Status::FOUND
+    ): ResponseInterface
     {
         return $this
             ->responseFactory
             ->createResponse($code)
-            ->withHeader(Header::LOCATION, $url);
+            ->withHeader(
+                Header::LOCATION,
+                $this
+                    ->urlGenerator
+                    ->generate($name, $attributes, $queryParameters)
+            )
+        ;
     }
 }
