@@ -23,6 +23,25 @@ final class ResponseService
     {
     }
 
+    public function jsonResponse(string $json): ResponseInterface
+    {
+        $response = $this
+            ->responseFactory
+            ->createResponse(Status::OK)
+        ;
+
+        $response
+            ->getBody()
+            ->write($json)
+        ;
+
+        $response
+            ->withHeader(Header::CONTENT_TYPE, 'application/json; charset=UTF-8')
+        ;
+
+        return $response;
+    }
+
     public function notFoundResponse(string $message = ''): ResponseInterface
     {
         $response = $this
