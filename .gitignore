@@ -43,7 +43,7 @@ c3.php
 /tests/Support/Data/testDB.sqlite_snapshot
 
 # Composer
-# composer.lock
+composer.lock
 
 # phpDocumentor cache
 /docs/cache
