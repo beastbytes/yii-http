@@ -31,5 +31,11 @@
         "psr-4": {
           "BeastBytes\\Yii\\Http\\Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "infection": "roave-infection-static-analysis-plugin --log-verbosity=all --debug",
+        "psalm": "psalm",
+        "robo": "robo",
+        "test": "phpunit --testdox"
     }
 }
