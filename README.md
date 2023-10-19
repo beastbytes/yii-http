@@ -1,4 +1,4 @@
-# HTTP
+# YII HTTP
 HTTP services
 
 For license information see the [LICENSE](LICENSE.md) file.
@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist beastbytes/http
+php composer.phar require --prefer-dist beastbytes/yii-http
 ```
 
 or add
 
 ```json
-"beastbytes/http": "*"
+"beastbytes/yii-http": "*"
 ```
 
 to the require section of your composer.json.
