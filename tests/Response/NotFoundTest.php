@@ -26,7 +26,7 @@ use Yiisoft\Router\UrlGeneratorInterface;
 
 class NotFoundTest extends TestCase
 {
-    private const MESSAGE = 'Test message';
+    private const BODY = 'Test body';
 
     /** @psalm-suppress PropertyNotSetInConstructor  */
     private NotFound $responseCreator;
@@ -46,11 +46,11 @@ class NotFoundTest extends TestCase
         $this->assertSame(Status::NOT_FOUND, $response->getStatusCode());
     }
 
-    public function testWithMessage(): void
+    public function testWithBody(): void
     {
         $responseCreator = $this
             ->responseCreator
-            ->withMessage(self::MESSAGE)
+            ->withBody(self::BODY)
         ;
 
         $this->assertNotSame($this->responseCreator, $responseCreator);
@@ -59,6 +59,6 @@ class NotFoundTest extends TestCase
 
         $this->assertInstanceOf(ResponseInterface::class, $response);
         $this->assertSame(Status::NOT_FOUND, $response->getStatusCode());
-        $this->assertSame(self::MESSAGE, $response->getBody()->getContents());
+        $this->assertSame(self::BODY, $response->getBody()->getContents());
     }
 }
