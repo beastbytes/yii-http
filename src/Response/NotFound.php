@@ -15,21 +15,21 @@ use Yiisoft\Http\Status;
 
 class NotFound
 {
-    private ?string $message = null;
+    private ?string $body = null;
 
     public function __construct(private ResponseFactoryInterface $responseFactory)
     {
     }
 
     /**
-     * Returns a new instance with the specified message.
+     * Returns a new instance with the specified body.
      *
-     * @param string $message Message body
+     * @param string $body Response body
      */
-    public function withMessage(string $message): self
+    public function withBody(string $body): self
     {
         $new = clone $this;
-        $new->message = $message;
+        $new->body = $body;
         return $new;
     }
 
@@ -39,11 +39,11 @@ class NotFound
             ->responseFactory
             ->createResponse(Status::NOT_FOUND);
 
-        if ($this->message !== null) {
+        if ($this->body !== null) {
             $streamFactory = new StreamFactory();
 
             return $response
-                ->withBody($streamFactory->createStream($this->message))
+                ->withBody($streamFactory->createStream($this->body))
             ;
         }
 
