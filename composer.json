@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.0",
         "psr/http-message": "^1.0",
-        "yiisoft/router": "3.0",
+        "yiisoft/router": "4.0",
         "yiisoft/yii-http": "^1.0"
     },
     "require-dev": {
@@ -20,7 +20,7 @@
         "roave/infection-static-analysis-plugin": "^1.0",
         "roave/security-advisories": "dev-latest",
         "vimeo/psalm": "^5.0",
-        "yiisoft/router-fastroute": "^3.0"
+        "yiisoft/router-fastroute": "^4.0"
     },
     "autoload": {
         "psr-4": {
